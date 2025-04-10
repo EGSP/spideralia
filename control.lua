@@ -447,7 +447,7 @@ local function setup()
   storage.banned_items = get_banned_items(
     prototypes.get_item_filtered({{filter = "type", type = "gun"}}),  -- Guns
     prototypes.get_item_filtered({{filter = "type", type = "armor"}}),  -- Armor
-    game.get_filtered_recipe_prototypes({{filter = "has-ingredient-item", elem_filters = {{filter = "type", type = "gun"}, {filter = "type", type = "armor"}}}})  -- Recipes
+    prototypes.get_recipe_filtered({{filter = "has-ingredient-item", elem_filters = {{filter = "type", type = "gun"}, {filter = "type", type = "armor"}}}})  -- Recipes
   )
   for _, name in pairs(spidertron_names) do
     table.insert(storage.banned_items, name)
@@ -492,7 +492,7 @@ local function setup()
     end
 
     -- Replace items
-    for name, _ in pairs(game.item_prototypes) do
+    for name, _ in pairs(prototypes.item) do
       if contains(storage.banned_items, name) then
         for _, surface in pairs(game.surfaces) do
           -- Check train cars, chests, cars, player inventories, and logistics chests.
@@ -539,7 +539,7 @@ local function config_changed_setup(changed_data)
   storage.banned_items = get_banned_items(
     prototypes.get_item_filtered({{filter = "type", type = "gun"}}),  -- Guns
     prototypes.get_item_filtered({{filter = "type", type = "armor"}}),  -- Armor
-    game.get_filtered_recipe_prototypes({{filter = "has-ingredient-item", elem_filters = {{filter = "type", type = "gun"}, {filter = "type", type = "armor"}}}})  -- Recipes
+    prototypes.get_recipe_filtered({{filter = "has-ingredient-item", elem_filters = {{filter = "type", type = "gun"}, {filter = "type", type = "armor"}}}})  -- Recipes
   )
   for _, name in pairs(spidertron_names) do
     table.insert(storage.banned_items, name)

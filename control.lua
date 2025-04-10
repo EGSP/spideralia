@@ -445,8 +445,8 @@ local function setup()
   storage.force_spidertron_level = storage.force_spidertron_level or {}  -- Will be set per-force below
 
   storage.banned_items = get_banned_items(
-    game.get_filtered_item_prototypes({{filter = "type", type = "gun"}}),  -- Guns
-    game.get_filtered_item_prototypes({{filter = "type", type = "armor"}}),  -- Armor
+    prototypes.get_item_filtered({{filter = "type", type = "gun"}}),  -- Guns
+    prototypes.get_item_filtered({{filter = "type", type = "armor"}}),  -- Armor
     game.get_filtered_recipe_prototypes({{filter = "has-ingredient-item", elem_filters = {{filter = "type", type = "gun"}, {filter = "type", type = "armor"}}}})  -- Recipes
   )
   for _, name in pairs(spidertron_names) do
@@ -537,8 +537,8 @@ local function config_changed_setup(changed_data)
 
   -- Regenerate banned item list (in case new mods have been added or compatibility mode has been turned on)
   storage.banned_items = get_banned_items(
-    game.get_filtered_item_prototypes({{filter = "type", type = "gun"}}),  -- Guns
-    game.get_filtered_item_prototypes({{filter = "type", type = "armor"}}),  -- Armor
+    prototypes.get_item_filtered({{filter = "type", type = "gun"}}),  -- Guns
+    prototypes.get_item_filtered({{filter = "type", type = "armor"}}),  -- Armor
     game.get_filtered_recipe_prototypes({{filter = "has-ingredient-item", elem_filters = {{filter = "type", type = "gun"}, {filter = "type", type = "armor"}}}})  -- Recipes
   )
   for _, name in pairs(spidertron_names) do

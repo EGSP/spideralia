@@ -225,7 +225,7 @@ local function ensure_player_is_in_correct_spidertron(player, entity)
       return
     end
 
-    local reg_id = script.register_on_entity_destroyed(spidertron)
+    local reg_id = script.register_on_object_destroyed(spidertron)
     global.registered_spidertrons[reg_id] = player
 
 
@@ -675,7 +675,7 @@ script.on_event(defines.events.on_entity_died,
   spidertron_filters
 )
 
-script.on_event(defines.events.on_entity_destroyed,
+script.on_event(defines.events.on_object_destroyed,
   function(event)
     local reg_id = event.registration_number
     local unit_number = event.unit_number

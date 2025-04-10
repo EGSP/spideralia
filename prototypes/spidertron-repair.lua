@@ -14,10 +14,8 @@ data:extend{
     action = "lua",
     associated_control_input = "spidertron-repair",
     localised_name = {"shortcut.spidertron-repair"},
-    icon = {
-      filename = "__base__/graphics/icons/repair-pack.png",
-      size = 64,
-    }
+    icon = "__base__/graphics/icons/repair-pack.png",
+    small_icon = "__base__/graphics/icons/repair-pack.png"
   }
 }
 
